@@ -1,0 +1,22 @@
+.container {
+    margin: auto;
+    width: 480px;
+}
+
+.container > div {
+    margin-bottom: 20px;
+}
+
+.formRow {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;   
+}
+
+.formRow > div + div {
+    margin-left: 10px;
+}
+
+.datePicker {
+    width: 100%;
+}
