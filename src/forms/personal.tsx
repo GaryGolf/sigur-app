@@ -125,7 +125,7 @@ const PersonalForm = observer(({ form }: PersonalFormProps ) => {
             autoFocus: true,
             fullWidth: true,
             ...form.$(name).bind(),
-            onBlur: (e:any) => {
+            onBlur: (e: React.FocusEvent<HTMLInputElement>) => {
                 e.preventDefault()
                 form.validate(name, { showErrors: true })
                     .then(({ isValid }) => {
@@ -133,7 +133,21 @@ const PersonalForm = observer(({ form }: PersonalFormProps ) => {
                     }) 
                     .catch(error => console.error("Something has happend ", error))
             },
-        
+
+            onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key != 'Enter') return;
+                const idx = fields.findIndex(v => v.name == name)
+                if (idx < 0 || !fields[idx + 1]) return                
+                form.validate(name, { showErrors: true })
+                    .then(({ isValid }) => {
+                        if (!isValid) return
+                        const nextField = form.$(fields[idx +1].name)
+                        if (!nextField) return
+                        const input = nextField.ref.querySelector('input')
+                        if(!!input) input.focus()
+                    }) 
+                    .catch(error => console.error("Something has happend ", error))
+            },
         })
     }
     
@@ -145,6 +159,8 @@ const PersonalForm = observer(({ form }: PersonalFormProps ) => {
             <TextField {...buildFieldProps('lastName')} />
 
             <TextField {...buildFieldProps('surname')} />
+
+            <TextField  {...buildFieldProps('city')} />
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker 
@@ -170,15 +186,13 @@ const PersonalForm = observer(({ form }: PersonalFormProps ) => {
                 />
             </LocalizationProvider>
 
-            <TextField  {...buildFieldProps('city')} />
-
             <TextField  {...buildFieldProps('sex')} />
 
             <TextField {...buildFieldProps('position')} />
 
             <div className={styles.formRow}>
 
-                <TextField type="numberic" {...buildFieldProps('salary')} />
+                <TextField {...buildFieldProps('salary')} type="number"  />
 
                 <TextField
                     select
