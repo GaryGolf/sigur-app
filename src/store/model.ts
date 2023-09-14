@@ -1,8 +1,8 @@
-import { makeAutoObservable } from "mobx"
+import { makeAutoObservable, observable } from "mobx";
 
 export interface PersonalStore {
     data: any;
-    isLoading: boolean
+    isLoading: boolean;
 }
 
 export class Store {
@@ -13,7 +13,9 @@ export class Store {
     }
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this, {
+            personal: observable
+        })
     }
 
 }
