@@ -8,12 +8,12 @@ function Counter() {
 
     const counter = useStore(store => store.counter);
     const increment = useStore(store => store.increment) as () => void;
-    const title = `Click to count: ${counter}`;
+    const title = `Click to count `;
     return (
         <div className={styles.container} >
-            <button className={styles.button} onClick={increment}>{title}</button>
+            <button className={styles.button} onClick={increment}>{title + counter}</button>
             <div className={styles.placeholder}>
-            {title}
+            {title + "number"}
             </div>
         </div>
     )

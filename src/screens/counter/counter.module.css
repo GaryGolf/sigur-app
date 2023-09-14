@@ -11,8 +11,4 @@
 .placeholder {
     font-size: 10pt;
     visibility: hidden;
-   &:before {
-    content: "space";
-   }
-   
 }
