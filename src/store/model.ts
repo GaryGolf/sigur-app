@@ -1,4 +1,4 @@
-import { makeAutoObservable, observable } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 
 export interface PersonalStore {
     data: any;
@@ -6,6 +6,7 @@ export interface PersonalStore {
 }
 
 export class Store {
+    counter: number = 0;
     
     personal: PersonalStore = {
         data: {},
@@ -13,9 +14,16 @@ export class Store {
     }
 
     constructor() {
-        makeAutoObservable(this, {
-            personal: observable
+        this.increment = this.increment.bind(this);
+        return makeAutoObservable(this, {
+            counter: observable,
+            increment: action,
+            personal: observable,
         })
+    }
+
+    increment(): void { 
+        this.counter++; 
     }
 
 }
