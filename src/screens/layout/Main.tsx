@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../store";
-import { PersonalForm, personalForm as form } from "../../forms/personal";
+import { FormComposer } from '../form';
 import styles from './layout.module.css';
 
 
@@ -11,7 +11,7 @@ function Main() {
   return (
     <div className={styles.container}>
       { isLoading && <p>Loading...</p> }
-      <PersonalForm form={form}/>
+      <FormComposer />
     </div>
   );
 }
