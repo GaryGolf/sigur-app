@@ -20,3 +20,7 @@
 .datePicker {
     width: 100%;
 }
+
+.select {
+    min-width: 80px;
+}

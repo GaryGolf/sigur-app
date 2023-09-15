@@ -6,24 +6,15 @@ export interface PersonalStore {
 }
 
 export class Store {
-    counter: number = 0;
-    
     personal: PersonalStore = {
         data: {},
         isLoading: false
     }
 
     constructor() {
-        this.increment = this.increment.bind(this);
         return makeAutoObservable(this, {
-            counter: observable,
-            increment: action,
             personal: observable,
         })
-    }
-
-    increment(): void { 
-        this.counter++; 
     }
 
 }
