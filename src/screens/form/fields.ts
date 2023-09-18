@@ -1,3 +1,32 @@
+export const experienceFields = [
+ 
+    {
+        name: 'workStartDate',
+        label: 'Работа',
+        placeholder: 'Должность',
+    },
+    {
+        name: 'workEndDate',
+        label: 'Работа окончание',
+        placeholder: 'Должность',
+    },
+    {
+        name: 'workCompany',
+        label: 'Работа',
+        placeholder: 'Должность',
+    },
+    {
+        name: 'workPosition',
+        label: 'Работа',
+        placeholder: 'Должность',
+    },
+    {
+        name: 'workDuty',
+        label: 'Работа',
+        placeholder: 'Должность',
+    },
+]
+
 export const fields = [
     {
         name: 'firstName',
@@ -59,32 +88,19 @@ export const fields = [
 
             name: 0,
             fields: [
- 
-                {
-                    name: 'workStartDate',
-                    label: 'Работа',
-                    placeholder: 'Должность',
-                },
-                {
-                    name: 'workEndDate',
-                    label: 'Работа окончание',
-                    placeholder: 'Должность',
-                },
-                {
-                    name: 'workCompany',
-                    label: 'Работа',
-                    placeholder: 'Должность',
-                },
-                {
-                    name: 'workPosition',
-                    label: 'Работа',
-                    placeholder: 'Должность',
-                },
-                {
-                    name: 'workDuty',
-                    label: 'Работа',
-                    placeholder: 'Должность',
-                },
+                ...experienceFields,
+            ]
+        },{
+
+            name: 1,
+            fields: [
+                ...experienceFields,
+            ]
+        },{
+
+            name: 2,
+            fields: [
+                ...experienceFields,
             ]
         }
         ],   
@@ -124,34 +140,7 @@ export const sex = [
 ]
   
 
-export const experienceFields = [
- 
-    {
-        name: 'workStartDate',
-        label: 'Работа',
-        placeholder: 'Должность',
-    },
-    {
-        name: 'workEndDate',
-        label: 'Работа окончание',
-        placeholder: 'Должность',
-    },
-    {
-        name: 'workCompany',
-        label: 'Работа',
-        placeholder: 'Должность',
-    },
-    {
-        name: 'workPosition',
-        label: 'Работа',
-        placeholder: 'Должность',
-    },
-    {
-        name: 'workDuty',
-        label: 'Работа',
-        placeholder: 'Должность',
-    },
-]
+
 
 export function addExperience(fields: Array<any>) {
     return fields.map((v: any) => {
